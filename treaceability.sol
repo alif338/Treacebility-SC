@@ -3,50 +3,52 @@ pragma solidity ^0.8.2;
 
 contract Treaceability {
   struct Stup {
+    int id;
     string[] lokasi;
     string link_foto;
     int terakhir_dipanen;
-    string produktivitas;
+    string produktivitas; // float
   }
 
   struct Peternak {
-    string jumlah_madu;
-    Produk[] produks;
+    int id;
+    string jumlah_madu; // float
   }
 
-  struct Produk {
-    string jumlah;
-    Stup[] sumbers;
-    string no_batch;
+  struct Mentah {
+    int no_batch;
+    string jumlah; // float
+    int[] stup_sumber;
     string warna;
-    int tanggal_panen;
+    string rasa;
+    int tanggal_dipanen;
   }
-
-  // struct Mentah extends Produk
 
   struct Jadi {
     int product_id;
-    Stup[] sumbers;
-    bool jenis; // 0:= madu, 1:= propolis
+    int[] stup_sumber;
+    bool jenis; // 0: madu, 1: propolis
     string grade;
-    string volume;
-    string tanggal_produksi;
-    string tanggal_kadaluwarsa;
+    string volume; // fload
+    int tanggal_produksi;
+    int tanggal_kadaluwarsa;
   }
 
-  // struct Konsumen extends Jadi
+  struct RumahProduksi {
+    Mentah[] products_raw;
+    Jadi[] products;
+  }
 
-  struct S_t {
+  struct State {
     Stup[] stups;
     Peternak[] peternaks;
-    Produk mentah;
-   // Jadi[] jadi; 
+    RumahProduksi rumah_produksi;
     Jadi[] konsumen;
-    string graf; //  ??
+    int[][] graf;
   }
 
   struct Main {
-    S_t St;
+    State St;
     string src;
     string dest;
     string product_id;
