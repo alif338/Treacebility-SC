@@ -52,21 +52,28 @@ contract Treaceability {
   Jadi[] private konsumen;
   int[][] private graf;
 
+  struct State {
+    string stups,
+    string peternaks,
+    string rumah_produksi,
+    string konsumen,
+    string graf
+  }
   // Penambahan data STUP
-  function addStup(string[] memory lokasi, string memory link_foto, int terakhir_dipanen, string memory produktivitas) public {
-      int stup_id = int(stup_arr.length) + 1;
-      Stup memory _stup = Stup(stup_id, lokasi, link_foto, terakhir_dipanen, produktivitas);
-      stup_bank[stup_id] = _stup;
-      stup_arr.push(_stup);
-  }
+  // function addStup(string[] memory lokasi, string memory link_foto, int terakhir_dipanen, string memory produktivitas) public {
+  //     int stup_id = int(stup_arr.length) + 1;
+  //     Stup memory _stup = Stup(stup_id, lokasi, link_foto, terakhir_dipanen, produktivitas);
+  //     stup_bank[stup_id] = _stup;
+  //     stup_arr.push(_stup);
+  // }
 
-  function getStups() public view returns (Stup[] memory) {
-      return stup_arr;
-  }
+  // function getStups() public view returns (Stup[] memory) {
+  //     return stup_arr;
+  // }
 
-  function getStupById(int id) public view returns (Stup memory) {
-      return stup_bank[id];
-  }
+  // function getStupById(int id) public view returns (Stup memory) {
+  //     return stup_bank[id];
+  // }
 
   // Penambahan data PETERNAK
   function addPeternak() public {
